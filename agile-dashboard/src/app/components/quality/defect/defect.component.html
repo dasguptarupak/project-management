@@ -1,0 +1,38 @@
+
+<form class="example-container" (ngSubmit)="onCreateDefect(f)" #f="ngForm">
+  <div>Create Defect</div>
+    <mat-form-field>
+      <input matInput name="name" placeholder="Name" ngModel>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput name="description" placeholder="Description" ngModel></textarea>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-select name="state" placeholder="State" ngModel>
+        <mat-option value="1">Submitted</mat-option>
+        <mat-option value="1">Open</mat-option>
+        <mat-option value="1">Closed</mat-option>
+        <mat-option value="1">Reopen</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select name="project" placeholder="Project" ngModel>
+          <mat-option value="1">Team X</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <!-- <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option.name }}
+          </mat-option> 
+        </mat-autocomplete> -->
+        <input name="assignee" placeholder="Assignee" aria-label="Assignee" matInput ngModel>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Create</button>
+</form>  

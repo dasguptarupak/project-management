@@ -1,0 +1,8 @@
+<div>
+  <h3>List of defects : </h3>
+    <defect-item 
+        *ngFor="let defectEl of defects; let i = index"
+        [defect]="defectEl"
+        [index]="i">      
+    </defect-item>
+</div>
