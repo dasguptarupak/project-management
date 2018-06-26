@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DefectService } from '../defect.service';
 import { Defect } from '../defect.model';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'defect-list',
@@ -8,12 +9,23 @@ import { Defect } from '../defect.model';
   styleUrls: ['./defect-list.component.css'],
 })
 export class DefectListComponent implements OnInit {
-  defects: Defect[];
-
+  defects = new MatTableDataSource(this.defectService.getDefects());
+  displayedColumns = ['name', 'description', 'state', 'project', 'assignee'];
+  panelOpenState = false;
   constructor(private defectService: DefectService) { }
 
+  onRowClicked(row) {
+    console.log(row);
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.defects.filter = filterValue;
+  }
+
   ngOnInit() {
-    this.defects = this.defectService.getDefects();
+    // this.defects = this.defectService.getDefects();
     // console.log(this.defectService.getDefects());
   }
 

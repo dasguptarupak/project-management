@@ -1,25 +1,43 @@
 
-<form class="example-container" (ngSubmit)="onCreateDefect(f)" #f="ngForm">
+<form [formGroup]="defectForm" class="example-container" (ngSubmit)="onCreateDefect()">
   <div>Create Defect</div>
     <mat-form-field>
-      <input matInput name="name" placeholder="Name" ngModel>
+      <input 
+        matInput 
+        id="name" 
+        placeholder="Name"
+        formControlName="name" 
+        ngModel>
     </mat-form-field>
   
     <mat-form-field>
-      <textarea matInput name="description" placeholder="Description" ngModel></textarea>
+      <textarea 
+        matInput 
+        id="description" 
+        placeholder="Description"
+        formControlName="description"
+        ngModel></textarea>
     </mat-form-field>
   
     <mat-form-field>
-      <mat-select name="state" placeholder="State" ngModel>
+      <mat-select 
+      id="state"
+      placeholder="State"
+      formControlName="state"
+      ngModel>
         <mat-option value="1">Submitted</mat-option>
-        <mat-option value="1">Open</mat-option>
-        <mat-option value="1">Closed</mat-option>
-        <mat-option value="1">Reopen</mat-option>
+        <mat-option value="2">Open</mat-option>
+        <mat-option value="3">Closed</mat-option>
+        <mat-option value="4">Reopen</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-select name="project" placeholder="Project" ngModel>
+        <mat-select 
+          id="project"
+          placeholder="Project"
+          formControlName="project"
+          ngModel>
           <mat-option value="1">Team X</mat-option>
         </mat-select>
     </mat-form-field>
@@ -31,7 +49,13 @@
             {{ option.name }}
           </mat-option> 
         </mat-autocomplete> -->
-        <input name="assignee" placeholder="Assignee" aria-label="Assignee" matInput ngModel>
+        <input 
+        id="assignee" 
+        placeholder="Assignee" 
+        aria-label="Assignee"
+        formControlName="assignee"
+        matInput 
+        ngModel>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit">Create</button>

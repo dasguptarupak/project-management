@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DefectService } from '../defect.service';
 
 @Component({
   selector: 'defect',
@@ -7,28 +8,32 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./defect.component.css']
 })
 export class DefectComponent implements OnInit {
+  defectForm: FormGroup;
 
-  defectData = {
-    name: '',
-    description: '',
-    state: '',
-    project: '',
-    assignee: ''
-  };
+  constructor(private defectDataStorageService: DefectService) { }
 
-  constructor() { }
-
-  onCreateDefect(form: NgForm) {
-    this.defectData.name = form.value.name;
-    this.defectData.description = form.value.description;
-    this.defectData.state = form.value.state;
-    this.defectData.project = form.value.project;
-    this.defectData.assignee = form.value.assignee;
-    
-    console.log('Defect Created!', this.defectData);
-
+  onCreateDefect() {
+    // console.log('Defect Created!', this.defectForm.value);
+    this.defectDataStorageService.createDefect(this.defectForm.value);
   }
 
-  ngOnInit() {}
+  private initForm() {
+      let defectName: '';
+      let defectDescription: '';
+      let defectState: '';
+      let defectProject: '';
+      let defectAssignee: '';
+      
+      this.defectForm = new FormGroup({
+        'name': new FormControl(defectName, Validators.required),
+        'description': new FormControl(defectDescription, Validators.required),
+        'state': new FormControl(defectState, Validators.required),
+        'project': new FormControl(defectProject, Validators.required),
+        'assignee': new FormControl(defectAssignee, Validators.required)
+      });
+  }
+  ngOnInit() {
+    this.initForm();
+  }
 
 }

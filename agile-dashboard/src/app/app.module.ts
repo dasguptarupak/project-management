@@ -2,19 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
-import { 
-  MatToolbarModule, 
-  MatButtonModule, 
-  MatMenuModule, 
-  MatIconModule, 
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
   MatOptionModule,
   MatAutocompleteModule,
+  MatTableModule,
+  MatExpansionModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 
@@ -28,7 +31,7 @@ import { DefectListComponent } from './components/quality/defect-list/defect-lis
 
 import { DefectService } from './components/quality/defect.service';
 import { DefectItemComponent } from './components/quality/defect-list/defect-item/defect-item.component';
-// import { DefectDataStorageService } from './components/quality/defect-data-storage.service';
+import { DefectDataStorageService } from './components/quality/defect-data-storage.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { DefectItemComponent } from './components/quality/defect-list/defect-ite
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
@@ -55,9 +59,13 @@ import { DefectItemComponent } from './components/quality/defect-list/defect-ite
     MatOptionModule,
     AppRoutingModule,
     MatAutocompleteModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [
-    DefectService
+    DefectService,
+    DefectDataStorageService
   ],
   bootstrap: [AppComponent]
 })
