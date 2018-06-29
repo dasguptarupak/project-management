@@ -1,12 +1,12 @@
-
 <form [formGroup]="defectForm" class="example-container" (ngSubmit)="onCreateDefect()">
-  <div>Create Defect</div>
+  <mat-card>
+  <!-- <div>Create Defect</div> -->
     <mat-form-field>
       <input 
         matInput 
-        id="name" 
-        placeholder="Name"
-        formControlName="name" 
+        id="id" 
+        placeholder="Defect ID"
+        formControlName="id" 
         ngModel>
     </mat-form-field>
   
@@ -58,5 +58,6 @@
         ngModel>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Create</button>
+    <button mat-raised-button color="primary" type="submit">Create Defect</button>
+  </mat-card>
 </form>  

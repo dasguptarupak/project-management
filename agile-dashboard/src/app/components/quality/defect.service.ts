@@ -23,10 +23,6 @@ export class DefectService {
         )
     ];
     constructor() {}
-    
-    getDefects() {
-        return this.defects.slice();
-    }
 
     getDefect(index: number) {
         return this.defects[index];

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DefectService } from '../defect.service';
 import { Defect } from '../defect.model';
 import {MatTableDataSource} from '@angular/material';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'defect-list',
@@ -9,10 +11,11 @@ import {MatTableDataSource} from '@angular/material';
   styleUrls: ['./defect-list.component.css'],
 })
 export class DefectListComponent implements OnInit {
-  defects = new MatTableDataSource(this.defectService.getDefects());
-  displayedColumns = ['name', 'description', 'state', 'project', 'assignee'];
+  defects: Observable<{defects: Defect[]}>;
+  displayedColumns = ['id', 'description', 'state', 'project', 'assignee'];
   panelOpenState = false;
-  constructor(private defectService: DefectService) { }
+
+  constructor(private defectService: DefectService, private store: Store<{defect: {defects: Defect[]}}>) { }
 
   onRowClicked(row) {
     console.log(row);
@@ -21,12 +24,11 @@ export class DefectListComponent implements OnInit {
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.defects.filter = filterValue;
+    // this.defects.filter = filterValue;
   }
 
   ngOnInit() {
-    // this.defects = this.defectService.getDefects();
-    // console.log(this.defectService.getDefects());
+    this.defects = this.store.select('defect');
   }
 
 }
