@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+
 import { Story } from '../story.model';
 
 @Component({

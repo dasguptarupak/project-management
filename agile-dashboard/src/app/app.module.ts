@@ -20,7 +20,7 @@ import {
   MatTableModule,
   MatExpansionModule,
   MatPaginatorModule,
-  MatCardModule
+  MatCardModule,
 } from '@angular/material';
 
 
@@ -71,7 +71,7 @@ import { storyReducer } from './components/plan/store/story.reducers';
     MatTableModule,
     MatExpansionModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [
     DefectService,

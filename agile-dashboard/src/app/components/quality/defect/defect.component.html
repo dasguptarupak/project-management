@@ -2,38 +2,38 @@
   <mat-card>
   <!-- <div>Create Defect</div> -->
     <mat-form-field>
-      <input 
-        matInput 
-        id="id" 
+      <input
+        matInput
+        id="id"
         placeholder="Defect ID"
-        formControlName="id" 
+        formControlName="id"
         ngModel>
     </mat-form-field>
-  
+
     <mat-form-field>
-      <textarea 
-        matInput 
-        id="description" 
+      <textarea
+        matInput
+        id="description"
         placeholder="Description"
         formControlName="description"
         ngModel></textarea>
     </mat-form-field>
-  
+
     <mat-form-field>
-      <mat-select 
+      <mat-select
       id="state"
       placeholder="State"
       formControlName="state"
       ngModel>
-        <mat-option value="1">Submitted</mat-option>
-        <mat-option value="2">Open</mat-option>
-        <mat-option value="3">Closed</mat-option>
-        <mat-option value="4">Reopen</mat-option>
+        <mat-option value="Submitted">Submitted</mat-option>
+        <mat-option value="Open">Open</mat-option>
+        <mat-option value="Closed">Closed</mat-option>
+        <mat-option value="Reopen">Reopen</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-select 
+        <mat-select
           id="project"
           placeholder="Project"
           formControlName="project"
@@ -47,17 +47,17 @@
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{ option.name }}
-          </mat-option> 
+          </mat-option>
         </mat-autocomplete> -->
-        <input 
-        id="assignee" 
-        placeholder="Assignee" 
+        <input
+        id="assignee"
+        placeholder="Assignee"
         aria-label="Assignee"
         formControlName="assignee"
-        matInput 
+        matInput
         ngModel>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit">Create Defect</button>
   </mat-card>
-</form>  
+</form>

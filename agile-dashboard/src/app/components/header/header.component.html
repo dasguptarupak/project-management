@@ -7,10 +7,11 @@
     <div>
         <button mat-button routerLink="/">Board</button>
         <button mat-button routerLink="/plan">Plan</button>
-        <button mat-button [matMenuTriggerFor]="menu">Quality</button>
+        <button mat-button [matMenuTriggerFor]="qualityMenu">Quality</button>
     </div>
-    <mat-menu #menu="matMenu">
+    <mat-menu #qualityMenu="matMenu">
       <button mat-menu-item routerLink="/defect">Create Defect</button>
       <button mat-menu-item routerLink="/defect-list">Defect List</button>
     </mat-menu>
+
 </mat-toolbar>

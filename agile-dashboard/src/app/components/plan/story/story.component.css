@@ -1,0 +1,10 @@
+
+.example-container, mat-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container > * {
+  width: 50%;
+  margin: 1% auto auto auto;
+}

@@ -1,4 +1,87 @@
-<p>
-  userstory works!
- <!-- New, Defined, In-Progress, Completed, Accepted, Released -->
-</p>
+<form [formGroup]="storyForm" class="example-container" (ngSubmit)="onCreateStory()">
+    <mat-card>
+        <mat-form-field>
+        <input
+            matInput
+            id="id"
+            placeholder="Story ID"
+            formControlName="id"
+            ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+        <textarea
+            matInput
+            id="name"
+            placeholder="Story Name"
+            formControlName="name"
+            ngModel></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select
+                id="project"
+                placeholder="Project"
+                formControlName="project"
+                ngModel>
+                <mat-option value="Team X">Team X</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select
+                id="state"
+                placeholder="State"
+                formControlName="state"
+                ngModel>
+                    <mat-option value="New">New</mat-option>
+                    <mat-option value="Defined">Defined</mat-option>
+                    <mat-option value="In-Progress">In-Progress</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="Accepted">Accepted</mat-option>
+                    <mat-option value="Released">Released</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+                <mat-select
+                    id="release"
+                    placeholder="Release"
+                    formControlName="release"
+                    ngModel>
+                        <mat-option value="E10A">E10A</mat-option>
+                        <mat-option value="E11A">E11A</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select
+                    id="iteration"
+                    placeholder="Iteration"
+                    formControlName="iteration"
+                    ngModel>
+                        <mat-option value="E10A-Sprint 1">E10A-Sprint 1</mat-option>
+                        <mat-option value="E10A-Sprint 1">E10A-Sprint 2</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input
+                    matInput
+                    id="owner"
+                    placeholder="Owner"
+                    formControlName="owner"
+                    ngModel>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input
+                    matInput
+                    id="estimation"
+                    placeholder="Estimation"
+                    formControlName="estimation"
+                    ngModel>
+            </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Create Story</button>
+    </mat-card>
+</form>
